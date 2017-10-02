@@ -1,8 +1,8 @@
 # Level 6 Group 3  Project Repository. 
 
-Ogheneochuko Ideh 
-River Chick 
-Michael Curtis 
+Ogheneochuko Ideh, 
+River Chick, 
+Michael Curtis, 
 Ryan Manthorp 
 
 
