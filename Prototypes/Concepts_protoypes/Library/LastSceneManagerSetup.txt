@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/Games/Planet Vpet/Scene/Planet v-pet.unity
+  isLoaded: 1
+  isActive: 1
