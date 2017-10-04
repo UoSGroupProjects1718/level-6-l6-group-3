@@ -1,10 +1,11 @@
 fileFormatVersion: 2
 guid: 7312564eb7ae07e42befce49492c290c
-timeCreated: 1507053840
+timeCreated: 1507121258
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: Planet
+    21300002: Astroid_one
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -92,7 +93,21 @@ TextureImporter:
         width: 719
         height: 679
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Astroid_one
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 2296
+        width: 113
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
