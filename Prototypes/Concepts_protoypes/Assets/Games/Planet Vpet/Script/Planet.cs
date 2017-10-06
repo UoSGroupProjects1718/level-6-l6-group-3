@@ -17,7 +17,9 @@ public class Planet : MonoBehaviour {
 	public Text planetname2;
 	public Button reset; 
 	public Text lifeform; 
-	public int lifeformnum = 0;
+	public int lifeformnum = 0; 
+	public GameObject astriods;
+	public GameObject astroidsflare; 
 	Vector3 temp;
 
 	// Use this for initialization
@@ -28,8 +30,8 @@ public class Planet : MonoBehaviour {
 		planetcolor = Random.Range (1, 6);  
 		scale = Random.Range (1, 6); 
 		name1 = Random.Range (1, 6); 
-		name2 = Random.Range (1, 3); 
-		lifeformnum = Random.Range (2, 50);
+		name2 = Random.Range (1, 3);  
+		//lifeformnum = Random.Range (2, 50);
 		if (planetcolor == 1) {
 			rend.material.color = Color.green; 
 		} else if (planetcolor == 2) {
@@ -106,7 +108,7 @@ public class Planet : MonoBehaviour {
 		planetagetext.text = planetage + " Years"; 
 		planetcolor = Random.Range (1, 6); 
 		scale = Random.Range (1, 6); 
-		lifeformnum = Random.Range (2, 50);
+		//lifeformnum = Random.Range (2, 50);
 		if (planetcolor == 1) {
 			rend.material.color = Color.green; 
 			  
@@ -190,15 +192,26 @@ public class Planet : MonoBehaviour {
 	void Update () { 
 		planetagetext.text = planetage + " Years"; 
 		lifeform.text = lifeformnum + " Species" ; 
-	} 
+	}  
+	void OnCollisionEnter2D(Collision2D col) {
+		//Debug.Log ("collision"); 
+		astroidsflare.SetActive (true); 
+		StartCoroutine (quiteflare ());
+	}
 
 	IEnumerator addage()
 	{
 		yield return new WaitForSeconds (2.5f); 
 		planetage += 1;  
-		lifeformnum += Random.Range (256, 65384);
+		lifeformnum += Random.Range (10, 1000);
 
 		StartCoroutine (addage ());
+	} 
+	IEnumerator quiteflare()
+	{ 
+		yield return new WaitForSeconds (0.5f); 
+		astroidsflare.SetActive (false); 
+		Destroy (astriods);
 	}
 
 
