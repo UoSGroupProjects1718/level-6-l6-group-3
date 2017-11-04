@@ -10,8 +10,8 @@ public class triggerGravity : MonoBehaviour {
 		if (col.gameObject.tag == "rock")
 		{
 			Debug.Log ("hit");
-			GameObject.Find ("Rock").GetComponent<PlayerGravityBody> ().inGravityField = true;
-			GameObject.Find ("Rock2").GetComponent<PlayerGravityBody> ().inGravityField = true;
+			GameObject.Find ("Asteriod").GetComponent<PlayerGravityBody> ().inGravityField = true;
+			GameObject.Find ("Asteriod2").GetComponent<PlayerGravityBody> ().inGravityField = true;
 		}
 	}
 
@@ -20,8 +20,8 @@ public class triggerGravity : MonoBehaviour {
 		if (col.gameObject.tag == "rock")
 		{
 			Debug.Log ("hit");
-			GameObject.Find ("Rock").GetComponent<PlayerGravityBody> ().inGravityField = false;
-			GameObject.Find ("Rock2").GetComponent<PlayerGravityBody> ().inGravityField = false;
+			GameObject.Find ("Asteriod").GetComponent<PlayerGravityBody> ().inGravityField = false;
+			GameObject.Find ("Asteriod2").GetComponent<PlayerGravityBody> ().inGravityField = false;
 		}
 	}
 
