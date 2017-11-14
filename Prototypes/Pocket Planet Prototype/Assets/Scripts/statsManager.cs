@@ -21,6 +21,7 @@ public class statsManager : MonoBehaviour
 			faith = wealth / 2;
 			pop -= 1;
 			col.gameObject.GetComponent<Renderer>().material.color = Color.red;
+
 			//col.gameObject.transform.localScale += new Vector3(-0.001F, -0.001F, -0.001F);
 		}
 	}
