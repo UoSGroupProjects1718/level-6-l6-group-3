@@ -11,6 +11,7 @@ public class triggerGravity : MonoBehaviour {
 		{
 			Debug.Log ("hit");
 			gameObject.GetComponent<PlayerGravityBody> ().inGravityField = true;
+			gameObject.GetComponent<Rigidbody> ().isKinematic = false;
 
 		}
 	}
