@@ -18,6 +18,7 @@ public class moveObjects : MonoBehaviour  {
 	void OnMouseDown(){
 		screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 		offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+		GetComponent<Renderer>().material.color = Color.yellow;
 	}
 
 	void OnMouseDrag()

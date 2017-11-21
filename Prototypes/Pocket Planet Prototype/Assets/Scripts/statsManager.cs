@@ -13,18 +13,6 @@ public class statsManager : MonoBehaviour
 	public Text PopulationText;
 	public Text FaithPointsText;
 
-	void OnTriggerEnter(Collider col)
-	{
-		if (col.gameObject.tag == "rock")
-		{
-			wealth+=10;
-			faith = wealth / 2;
-			pop -= 1;
-			col.gameObject.GetComponent<Renderer>().material.color = Color.red;
-
-			//col.gameObject.transform.localScale += new Vector3(-0.001F, -0.001F, -0.001F);
-		}
-	}
 
 	void Update()
 	{
@@ -34,4 +22,32 @@ public class statsManager : MonoBehaviour
 
 	}
 
+	void OnTriggerEnter (Collider col)
+	{
+		if (col.gameObject.tag == "rock") 
+		{
+			addScore ();
+			Destroy (col.gameObject);
+
+
+		}
+	}
+
+	void addScore()
+	{
+		if (pop >= wealth)
+		{
+			wealth += 10;
+			faith = wealth / 2;
+			pop -= 10;
+		}
+
+		if (pop <= wealth) 
+		{
+			return;
+		}
+
+	}
+
 }
+			
