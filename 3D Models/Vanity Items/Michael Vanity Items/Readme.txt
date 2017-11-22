@@ -1,0 +1,1 @@
+Documentation as to which textures go in which fbx texture slots in Unity will be provided upon request or I shall implement the textures to the meshs in the game engine
