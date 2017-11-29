@@ -33,7 +33,7 @@ public class moveObjects : MonoBehaviour  {
 		GetComponent<Rigidbody>().AddForce(theCamera.transform.right * Input.GetAxis("Mouse X") * flingValue, ForceMode.Impulse);
 		GetComponent<Rigidbody>().AddForce(theCamera.transform.up * Input.GetAxis("Mouse Y") * flingValue, ForceMode.Impulse);
 		GetComponent<Renderer>().material.color = Color.cyan;
-		gameObject.GetComponent<asteroidPath> ().onPath = false;
+		//gameObject.GetComponent<asteroidPath> ().onPath = false;
 	}
 
 }

@@ -17,8 +17,6 @@ public class asteroidPath : MonoBehaviour {
 		}
 	}
 
-	void OnBecameInvisible() {
-		Destroy(gameObject);
-	}
+
 
 }

@@ -1,0 +1,16 @@
+Key:
+Orange: Back/Cancel Button
+Pink: Premium Currency Icon
+Green: Make transaction button
+Red: Image of item
+Beige: Faith Icon
+Purple: Gacha Icon
+Interaction
+Players can scroll the Item list and premium currency list to see more listings.
+Selecting the Make transaction button will try to make the transaction happen
+Selecting an item from the browsing list brings up the blue pop-up
+Selecting the back/cancel button on the blue pop-up makes it go away
+Selecting the make transaction button on the blue pop-up attempts to make the transaction and makes the pop-up go away
+Selecting the Make transaction button on the gacha attempts to use the player faith and deposits an item below in the reward area which is given to the player
+The reward slot is empty when a player enters the store and will be overwritten by additional rewards the player gets from the gacha if they do not leave the store screen in between (although of course the player will then have access to all items)
+Selecting the back button on the main store UI brings the player back to the game screen

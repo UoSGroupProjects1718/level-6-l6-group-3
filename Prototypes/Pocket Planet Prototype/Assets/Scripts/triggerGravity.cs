@@ -33,6 +33,9 @@ public class triggerGravity : MonoBehaviour {
 			Debug.Log ("left");
 			gameObject.GetComponent<PlayerGravityBody> ().inGravityField = false;
 
+			ParticleSystem.EmissionModule em = gameObject.GetComponentInChildren<ParticleSystem>().emission;
+			em.enabled = false;
+
 		}
 	}
 
