@@ -44,11 +44,18 @@ public class statsManager : MonoBehaviour
 		{
 			planetLevel += 1;
 			addScore ();
-			//Destroy (col.gameObject);
+			Destroy (col.gameObject);
 
-			col.gameObject.transform.position = new Vector3 (1400, 450, -136);
-			col.gameObject.GetComponent<PlayerGravityBody> ().inGravityField = false;
-			col.gameObject.GetComponent<asteroidPath> ().onPath = true;
+
+			//col.gameObject.transform.position = new Vector3 (1400, 450, -136);
+			//col.gameObject.GetComponent<PlayerGravityBody> ().inGravityField = false;
+			//col.gameObject.GetComponent<asteroidPath> ().onPath = true;
+			//col.gameObject.GetComponent<asteroidStats>().statsAdded = false;
+			//col.gameObject.GetComponent<Renderer>().material.color = Color.gray;
+
+			//ParticleSystem.EmissionModule em = gameObject.GetComponentInChildren<ParticleSystem>().emission;
+			//em.enabled = false;
+
 
 
 

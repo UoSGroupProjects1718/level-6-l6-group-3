@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class asteroidStats : MonoBehaviour {
 
@@ -10,10 +11,18 @@ public class asteroidStats : MonoBehaviour {
     public int gold = 0;
 
     public bool statsAdded = false;
+	public bool statsVisable = false;
+	public Image statLabel;
+
+	public Text ironStat;
+	public Text iceStat;
+	public Text nickelStat;
+	public Text goldStat;
+
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.name == "AsteroidZone" && statsAdded == false)
+        if (col.gameObject.name == "AsteroidStatGiver" && statsAdded == false)
         {
             statsAdded = true;
 
@@ -24,18 +33,37 @@ public class asteroidStats : MonoBehaviour {
 
             Debug.Log("collided");
 
+			addStats ();
+
         }
     }
 
-	// Use this for initialization
-	void Start ()
-    {
-
-
-    }
-
-    // Update is called once per frame
-    void Update () {
-		
+	void addStats()
+	{
+		ironStat.text = iron.ToString();
+		iceStat.text = ice.ToString ();
+		nickelStat.text = nickel.ToString ();
+		goldStat.text = gold.ToString ();
 	}
-}
+
+    void Update () 
+	{
+		if (statsVisable == true)
+		{
+			Vector3 statPos = Camera.main.WorldToScreenPoint (this.transform.position);
+			statLabel.transform.position = statPos;
+		}
+		if (statsVisable == false)
+		{
+			//Vector3 statPos = Camera.main.WorldToScreenPoint (this.transform.position);
+			//statLabel.transform.position = new Vector3 (0,900,0);
+		}
+
+
+
+	
+
+			}
+	}﻿
+	
+
