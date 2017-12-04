@@ -19,6 +19,7 @@ public class moveObjects : MonoBehaviour  {
 		screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 		offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
 		GetComponent<Renderer>().material.color = Color.yellow;
+		GetComponent<asteroidStats> ().statsVisable = true;
 	}
 
 	void OnMouseDrag()
@@ -33,6 +34,7 @@ public class moveObjects : MonoBehaviour  {
 		GetComponent<Rigidbody>().AddForce(theCamera.transform.right * Input.GetAxis("Mouse X") * flingValue, ForceMode.Impulse);
 		GetComponent<Rigidbody>().AddForce(theCamera.transform.up * Input.GetAxis("Mouse Y") * flingValue, ForceMode.Impulse);
 		GetComponent<Renderer>().material.color = Color.cyan;
+		GetComponent<asteroidStats> ().statsVisable = false;
 		//gameObject.GetComponent<asteroidPath> ().onPath = false;
 	}
 
