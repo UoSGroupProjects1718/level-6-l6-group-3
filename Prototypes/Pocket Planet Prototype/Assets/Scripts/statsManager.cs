@@ -19,7 +19,35 @@ public class statsManager : MonoBehaviour
 
 	public GameObject planet;
 
+	public GameObject gravityField;
+
+	public GameObject terraPlanet;
+
 	public ParticleSystem planetSmoke;
+
+	public Renderer terraRend;
+
+	public SphereCollider terraSphere;
+
+	public SphereCollider gravityFieldSize;
+
+	public bool terraPlanetLive;
+
+	void Start ()
+	{
+		terraRend = terraPlanet.GetComponent<Renderer> ();
+
+		//colRadius = planetCol.GetComponent<SphereCollider> ();
+
+		gravityFieldSize = gravityField.GetComponent<SphereCollider> ();
+
+		terraSphere = terraPlanet.GetComponent<SphereCollider> ();
+
+		terraSphere.enabled = false;
+
+	}
+
+
 
 	void Update()
 	{
@@ -29,12 +57,23 @@ public class statsManager : MonoBehaviour
 
 		debugPlanetLevel.text = planetLevel.ToString ();
 
-		//planet.transform.Rotate (0, Time.deltaTime, 0);
+		planet.transform.Rotate (0, Time.deltaTime*5, Time.deltaTime*10);
 
-		if (planetLevel % 5 == 0 && planetLevel>=5) 
+		if (planetLevel == 13) 
+		{
+			changePlanetType ();
+			terraPlanetLive = true;
+		}
+
+		if (terraPlanetLive == true) 
+		{
+			addPop ();
+		}
+
+		if (planetLevel % 5 == 0 && planetLevel>=5 && terraPlanetLive == false) 
 		{
 			planetLevel += 1;
-			changePlanet ();
+			changePlanetSize ();
 		}
 	}
 
@@ -63,21 +102,41 @@ public class statsManager : MonoBehaviour
 	}
 
 
-	void changePlanet()
+	void changePlanetSize()
 	{
+		gravityField.transform.localScale += new Vector3(0.1F, 0.1F, 0.1F);
 		planet.transform.localScale += new Vector3(0.1F, 0.1F, 0.1F);
 		planetSmoke.Play ();
 	}
 
 
+	void changePlanetType()
+	{
+		terraRend.enabled = true;
+
+		terraSphere.enabled = true;
+		gravityFieldSize.radius = 480;
+
+
+
+	}
+
+	void addPop()
+	{
+		pop = 1000;
+	}
 
 	void addScore()
 	{
 		if (planetLevel >= 10)
 		{
 			wealth += 10;
-			//faith = wealth / 2;
+			faith = wealth / 2;
 			pop -= 10;
+
+			addPop ();
+
+
 		}
 
 		if (pop <= 0) 
@@ -95,7 +154,7 @@ public class statsManager : MonoBehaviour
 
 	void addFaith()
 	{
-		faith = pop + wealth / 2;
+		faith = pop/5 + wealth / 2;
 	}
 
 }

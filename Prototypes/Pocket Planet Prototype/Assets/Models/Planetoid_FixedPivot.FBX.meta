@@ -1,0 +1,619 @@
+fileFormatVersion: 2
+guid: ba8c4eade0e18224ca47666ae48f751c
+timeCreated: 1512488089
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: mass_100
+    100002: mass_101
+    100004: mass_102
+    100006: mass_103
+    100008: mass_104
+    100010: mass_106
+    100012: mass_107
+    100014: mass_108
+    100016: mass_eight
+    100018: mass_eighteen
+    100020: mass_eighty
+    100022: mass_eightyeight
+    100024: mass_eightyfive
+    100026: mass_eightyfour
+    100028: mass_eightynine
+    100030: mass_eightyone
+    100032: mass_eightyseven
+    100034: mass_eightysix
+    100036: mass_eightythree
+    100038: mass_eightytwo
+    100040: 'mass_eleven '
+    100042: mass_fifteen
+    100044: mass_fifty
+    100046: mass_fiftyeight
+    100048: mass_fiftyfive
+    100050: mass_fiftyfour
+    100052: mass_fiftynine
+    100054: mass_fiftyone
+    100056: mass_fiftyseven
+    100058: mass_fiftysix
+    100060: mass_fiftythree
+    100062: mass_fiftytwo
+    100064: mass_five
+    100066: mass_four
+    100068: mass_fourteen
+    100070: mass_fourty
+    100072: 'mass_fourtyeight '
+    100074: mass_fourtyfive
+    100076: mass_fourtyfour
+    100078: mass_fourtynine
+    100080: mass_fourtyone
+    100082: mass_fourtyseven
+    100084: mass_fourtysix
+    100086: mass_fourtythree
+    100088: 'mass_fourtytwo '
+    100090: mass_nine
+    100092: mass_nineteen
+    100094: mass_ninety
+    100096: mass_ninetyeight
+    100098: mass_ninetyfive
+    100100: mass_ninetyfour
+    100102: mass_ninetynine
+    100104: mass_ninetyone
+    100106: mass_ninetyseven
+    100108: mass_ninetysix
+    100110: mass_ninetythree
+    100112: mass_ninetytwo
+    100114: mass_one
+    100116: mass_seven
+    100118: mass_seventeen
+    100120: 'mass_seventy '
+    100122: mass_seventyeight
+    100124: mass_seventyfive
+    100126: mass_seventyfour
+    100128: mass_seventynine
+    100130: 'mass_seventyone '
+    100132: mass_seventyseven
+    100134: mass_seventysix
+    100136: mass_seventythree
+    100138: 'mass_seventytwo '
+    100140: mass_six
+    100142: mass_sixteen
+    100144: mass_sixty
+    100146: mass_sixtyeight
+    100148: mass_sixtyfive
+    100150: mass_sixtyfour
+    100152: mass_sixtynine
+    100154: mass_sixtyone
+    100156: mass_sixtysix
+    100158: mass_sixtythree
+    100160: mass_sixtytwo
+    100162: mass_sixyseven
+    100164: mass_ten
+    100166: mass_thirteen
+    100168: 'mass_thirty '
+    100170: mass_thirtyeight
+    100172: mass_thirtyfive
+    100174: mass_thirtyfour
+    100176: mass_thirtyone
+    100178: mass_thirtyseven
+    100180: mass_thirtysix
+    100182: mass_thirtythree
+    100184: mass_thirtytwo
+    100186: mass_three
+    100188: mass_thritynine
+    100190: mass_twelve
+    100192: 'mass_twenty '
+    100194: mass_twentyeight
+    100196: mass_twentyfive
+    100198: mass_twentyfour
+    100200: mass_twentynine
+    100202: mass_twentyone
+    100204: mass_twentyseven
+    100206: mass_twentysix
+    100208: mass_twentythree
+    100210: mass_twentytwo
+    100212: mass_two
+    100214: Planet_core
+    100216: //RootNode
+    400000: mass_100
+    400002: mass_101
+    400004: mass_102
+    400006: mass_103
+    400008: mass_104
+    400010: mass_106
+    400012: mass_107
+    400014: mass_108
+    400016: mass_eight
+    400018: mass_eighteen
+    400020: mass_eighty
+    400022: mass_eightyeight
+    400024: mass_eightyfive
+    400026: mass_eightyfour
+    400028: mass_eightynine
+    400030: mass_eightyone
+    400032: mass_eightyseven
+    400034: mass_eightysix
+    400036: mass_eightythree
+    400038: mass_eightytwo
+    400040: 'mass_eleven '
+    400042: mass_fifteen
+    400044: mass_fifty
+    400046: mass_fiftyeight
+    400048: mass_fiftyfive
+    400050: mass_fiftyfour
+    400052: mass_fiftynine
+    400054: mass_fiftyone
+    400056: mass_fiftyseven
+    400058: mass_fiftysix
+    400060: mass_fiftythree
+    400062: mass_fiftytwo
+    400064: mass_five
+    400066: mass_four
+    400068: mass_fourteen
+    400070: mass_fourty
+    400072: 'mass_fourtyeight '
+    400074: mass_fourtyfive
+    400076: mass_fourtyfour
+    400078: mass_fourtynine
+    400080: mass_fourtyone
+    400082: mass_fourtyseven
+    400084: mass_fourtysix
+    400086: mass_fourtythree
+    400088: 'mass_fourtytwo '
+    400090: mass_nine
+    400092: mass_nineteen
+    400094: mass_ninety
+    400096: mass_ninetyeight
+    400098: mass_ninetyfive
+    400100: mass_ninetyfour
+    400102: mass_ninetynine
+    400104: mass_ninetyone
+    400106: mass_ninetyseven
+    400108: mass_ninetysix
+    400110: mass_ninetythree
+    400112: mass_ninetytwo
+    400114: mass_one
+    400116: mass_seven
+    400118: mass_seventeen
+    400120: 'mass_seventy '
+    400122: mass_seventyeight
+    400124: mass_seventyfive
+    400126: mass_seventyfour
+    400128: mass_seventynine
+    400130: 'mass_seventyone '
+    400132: mass_seventyseven
+    400134: mass_seventysix
+    400136: mass_seventythree
+    400138: 'mass_seventytwo '
+    400140: mass_six
+    400142: mass_sixteen
+    400144: mass_sixty
+    400146: mass_sixtyeight
+    400148: mass_sixtyfive
+    400150: mass_sixtyfour
+    400152: mass_sixtynine
+    400154: mass_sixtyone
+    400156: mass_sixtysix
+    400158: mass_sixtythree
+    400160: mass_sixtytwo
+    400162: mass_sixyseven
+    400164: mass_ten
+    400166: mass_thirteen
+    400168: 'mass_thirty '
+    400170: mass_thirtyeight
+    400172: mass_thirtyfive
+    400174: mass_thirtyfour
+    400176: mass_thirtyone
+    400178: mass_thirtyseven
+    400180: mass_thirtysix
+    400182: mass_thirtythree
+    400184: mass_thirtytwo
+    400186: mass_three
+    400188: mass_thritynine
+    400190: mass_twelve
+    400192: 'mass_twenty '
+    400194: mass_twentyeight
+    400196: mass_twentyfive
+    400198: mass_twentyfour
+    400200: mass_twentynine
+    400202: mass_twentyone
+    400204: mass_twentyseven
+    400206: mass_twentysix
+    400208: mass_twentythree
+    400210: mass_twentytwo
+    400212: mass_two
+    400214: Planet_core
+    400216: //RootNode
+    2300000: mass_100
+    2300002: mass_101
+    2300004: mass_102
+    2300006: mass_103
+    2300008: mass_104
+    2300010: mass_106
+    2300012: mass_107
+    2300014: mass_108
+    2300016: mass_eight
+    2300018: mass_eighteen
+    2300020: mass_eighty
+    2300022: mass_eightyeight
+    2300024: mass_eightyfive
+    2300026: mass_eightyfour
+    2300028: mass_eightynine
+    2300030: mass_eightyone
+    2300032: mass_eightyseven
+    2300034: mass_eightysix
+    2300036: mass_eightythree
+    2300038: mass_eightytwo
+    2300040: 'mass_eleven '
+    2300042: mass_fifteen
+    2300044: mass_fifty
+    2300046: mass_fiftyeight
+    2300048: mass_fiftyfive
+    2300050: mass_fiftyfour
+    2300052: mass_fiftynine
+    2300054: mass_fiftyone
+    2300056: mass_fiftyseven
+    2300058: mass_fiftysix
+    2300060: mass_fiftythree
+    2300062: mass_fiftytwo
+    2300064: mass_five
+    2300066: mass_four
+    2300068: mass_fourteen
+    2300070: mass_fourty
+    2300072: 'mass_fourtyeight '
+    2300074: mass_fourtyfive
+    2300076: mass_fourtyfour
+    2300078: mass_fourtynine
+    2300080: mass_fourtyone
+    2300082: mass_fourtyseven
+    2300084: mass_fourtysix
+    2300086: mass_fourtythree
+    2300088: 'mass_fourtytwo '
+    2300090: mass_nine
+    2300092: mass_nineteen
+    2300094: mass_ninety
+    2300096: mass_ninetyeight
+    2300098: mass_ninetyfive
+    2300100: mass_ninetyfour
+    2300102: mass_ninetynine
+    2300104: mass_ninetyone
+    2300106: mass_ninetyseven
+    2300108: mass_ninetysix
+    2300110: mass_ninetythree
+    2300112: mass_ninetytwo
+    2300114: mass_one
+    2300116: mass_seven
+    2300118: mass_seventeen
+    2300120: 'mass_seventy '
+    2300122: mass_seventyeight
+    2300124: mass_seventyfive
+    2300126: mass_seventyfour
+    2300128: mass_seventynine
+    2300130: 'mass_seventyone '
+    2300132: mass_seventyseven
+    2300134: mass_seventysix
+    2300136: mass_seventythree
+    2300138: 'mass_seventytwo '
+    2300140: mass_six
+    2300142: mass_sixteen
+    2300144: mass_sixty
+    2300146: mass_sixtyeight
+    2300148: mass_sixtyfive
+    2300150: mass_sixtyfour
+    2300152: mass_sixtynine
+    2300154: mass_sixtyone
+    2300156: mass_sixtysix
+    2300158: mass_sixtythree
+    2300160: mass_sixtytwo
+    2300162: mass_sixyseven
+    2300164: mass_ten
+    2300166: mass_thirteen
+    2300168: 'mass_thirty '
+    2300170: mass_thirtyeight
+    2300172: mass_thirtyfive
+    2300174: mass_thirtyfour
+    2300176: mass_thirtyone
+    2300178: mass_thirtyseven
+    2300180: mass_thirtysix
+    2300182: mass_thirtythree
+    2300184: mass_thirtytwo
+    2300186: mass_three
+    2300188: mass_thritynine
+    2300190: mass_twelve
+    2300192: 'mass_twenty '
+    2300194: mass_twentyeight
+    2300196: mass_twentyfive
+    2300198: mass_twentyfour
+    2300200: mass_twentynine
+    2300202: mass_twentyone
+    2300204: mass_twentyseven
+    2300206: mass_twentysix
+    2300208: mass_twentythree
+    2300210: mass_twentytwo
+    2300212: mass_two
+    2300214: Planet_core
+    3300000: mass_100
+    3300002: mass_101
+    3300004: mass_102
+    3300006: mass_103
+    3300008: mass_104
+    3300010: mass_106
+    3300012: mass_107
+    3300014: mass_108
+    3300016: mass_eight
+    3300018: mass_eighteen
+    3300020: mass_eighty
+    3300022: mass_eightyeight
+    3300024: mass_eightyfive
+    3300026: mass_eightyfour
+    3300028: mass_eightynine
+    3300030: mass_eightyone
+    3300032: mass_eightyseven
+    3300034: mass_eightysix
+    3300036: mass_eightythree
+    3300038: mass_eightytwo
+    3300040: 'mass_eleven '
+    3300042: mass_fifteen
+    3300044: mass_fifty
+    3300046: mass_fiftyeight
+    3300048: mass_fiftyfive
+    3300050: mass_fiftyfour
+    3300052: mass_fiftynine
+    3300054: mass_fiftyone
+    3300056: mass_fiftyseven
+    3300058: mass_fiftysix
+    3300060: mass_fiftythree
+    3300062: mass_fiftytwo
+    3300064: mass_five
+    3300066: mass_four
+    3300068: mass_fourteen
+    3300070: mass_fourty
+    3300072: 'mass_fourtyeight '
+    3300074: mass_fourtyfive
+    3300076: mass_fourtyfour
+    3300078: mass_fourtynine
+    3300080: mass_fourtyone
+    3300082: mass_fourtyseven
+    3300084: mass_fourtysix
+    3300086: mass_fourtythree
+    3300088: 'mass_fourtytwo '
+    3300090: mass_nine
+    3300092: mass_nineteen
+    3300094: mass_ninety
+    3300096: mass_ninetyeight
+    3300098: mass_ninetyfive
+    3300100: mass_ninetyfour
+    3300102: mass_ninetynine
+    3300104: mass_ninetyone
+    3300106: mass_ninetyseven
+    3300108: mass_ninetysix
+    3300110: mass_ninetythree
+    3300112: mass_ninetytwo
+    3300114: mass_one
+    3300116: mass_seven
+    3300118: mass_seventeen
+    3300120: 'mass_seventy '
+    3300122: mass_seventyeight
+    3300124: mass_seventyfive
+    3300126: mass_seventyfour
+    3300128: mass_seventynine
+    3300130: 'mass_seventyone '
+    3300132: mass_seventyseven
+    3300134: mass_seventysix
+    3300136: mass_seventythree
+    3300138: 'mass_seventytwo '
+    3300140: mass_six
+    3300142: mass_sixteen
+    3300144: mass_sixty
+    3300146: mass_sixtyeight
+    3300148: mass_sixtyfive
+    3300150: mass_sixtyfour
+    3300152: mass_sixtynine
+    3300154: mass_sixtyone
+    3300156: mass_sixtysix
+    3300158: mass_sixtythree
+    3300160: mass_sixtytwo
+    3300162: mass_sixyseven
+    3300164: mass_ten
+    3300166: mass_thirteen
+    3300168: 'mass_thirty '
+    3300170: mass_thirtyeight
+    3300172: mass_thirtyfive
+    3300174: mass_thirtyfour
+    3300176: mass_thirtyone
+    3300178: mass_thirtyseven
+    3300180: mass_thirtysix
+    3300182: mass_thirtythree
+    3300184: mass_thirtytwo
+    3300186: mass_three
+    3300188: mass_thritynine
+    3300190: mass_twelve
+    3300192: 'mass_twenty '
+    3300194: mass_twentyeight
+    3300196: mass_twentyfive
+    3300198: mass_twentyfour
+    3300200: mass_twentynine
+    3300202: mass_twentyone
+    3300204: mass_twentyseven
+    3300206: mass_twentysix
+    3300208: mass_twentythree
+    3300210: mass_twentytwo
+    3300212: mass_two
+    3300214: Planet_core
+    4300000: Planet_core
+    4300002: mass_one
+    4300004: mass_two
+    4300006: mass_three
+    4300008: mass_four
+    4300010: mass_five
+    4300012: mass_six
+    4300014: mass_seven
+    4300016: mass_eight
+    4300018: mass_nine
+    4300020: mass_ten
+    4300022: 'mass_eleven '
+    4300024: mass_twelve
+    4300026: mass_thirteen
+    4300028: mass_fourteen
+    4300030: mass_fifteen
+    4300032: mass_sixteen
+    4300034: mass_seventeen
+    4300036: mass_eighteen
+    4300038: mass_nineteen
+    4300040: 'mass_twenty '
+    4300042: mass_twentyone
+    4300044: mass_twentytwo
+    4300046: mass_twentythree
+    4300048: mass_twentyfour
+    4300050: mass_twentyfive
+    4300052: mass_twentysix
+    4300054: mass_twentyseven
+    4300056: mass_twentyeight
+    4300058: mass_twentynine
+    4300060: 'mass_thirty '
+    4300062: mass_thirtyone
+    4300064: mass_thirtytwo
+    4300066: mass_thirtythree
+    4300068: mass_thirtyfour
+    4300070: mass_thirtyfive
+    4300072: mass_thirtysix
+    4300074: mass_thirtyseven
+    4300076: mass_thirtyeight
+    4300078: mass_thritynine
+    4300080: mass_fourty
+    4300082: mass_fourtyone
+    4300084: 'mass_fourtytwo '
+    4300086: mass_fourtythree
+    4300088: mass_fourtyfour
+    4300090: mass_fourtyfive
+    4300092: mass_fourtysix
+    4300094: mass_fourtyseven
+    4300096: 'mass_fourtyeight '
+    4300098: mass_fourtynine
+    4300100: mass_fifty
+    4300102: mass_fiftyone
+    4300104: mass_fiftytwo
+    4300106: mass_fiftythree
+    4300108: mass_fiftyfour
+    4300110: mass_fiftyfive
+    4300112: mass_fiftysix
+    4300114: mass_fiftyseven
+    4300116: mass_fiftyeight
+    4300118: mass_fiftynine
+    4300120: mass_sixty
+    4300122: mass_sixtyone
+    4300124: mass_sixtytwo
+    4300126: mass_sixtythree
+    4300128: mass_sixtyfour
+    4300130: mass_sixtyfive
+    4300132: mass_sixtysix
+    4300134: mass_sixyseven
+    4300136: mass_sixtyeight
+    4300138: mass_sixtynine
+    4300140: 'mass_seventy '
+    4300142: 'mass_seventyone '
+    4300144: 'mass_seventytwo '
+    4300146: mass_seventythree
+    4300148: mass_seventyfour
+    4300150: mass_seventyfive
+    4300152: mass_seventysix
+    4300154: mass_seventyseven
+    4300156: mass_seventyeight
+    4300158: mass_seventynine
+    4300160: mass_eighty
+    4300162: mass_eightyone
+    4300164: mass_eightytwo
+    4300166: mass_eightythree
+    4300168: mass_eightyfour
+    4300170: mass_eightyfive
+    4300172: mass_eightysix
+    4300174: mass_eightyseven
+    4300176: mass_eightyeight
+    4300178: mass_eightynine
+    4300180: mass_ninety
+    4300182: mass_ninetyone
+    4300184: mass_ninetytwo
+    4300186: mass_ninetythree
+    4300188: mass_ninetyfour
+    4300190: mass_ninetyfive
+    4300192: mass_ninetysix
+    4300194: mass_ninetyseven
+    4300196: mass_ninetyeight
+    4300198: mass_ninetynine
+    4300200: mass_100
+    4300202: mass_101
+    4300204: mass_102
+    4300206: mass_103
+    4300208: mass_104
+    4300210: mass_106
+    4300212: mass_107
+    4300214: mass_108
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
