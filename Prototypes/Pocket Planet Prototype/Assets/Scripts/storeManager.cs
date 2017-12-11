@@ -29,7 +29,20 @@ public class storeManager : MonoBehaviour {
 	void purchaseCactus()
 	{
 		Debug.Log ("cactus bought");
-		var newCactus = Instantiate (CactusItem, new Vector3(itemSpawnLocation.GetComponent<Transform> ().position.x, itemSpawnLocation.GetComponent<Transform> ().position.y, 0), Quaternion.Euler(-90,0,-180));
+		if (parentPlanet.gameObject.GetComponent<statsManager> ().faith >= 50)
+		{
+			var newCactus = Instantiate (CactusItem, new Vector3 (itemSpawnLocation.GetComponent<Transform> ().position.x, itemSpawnLocation.GetComponent<Transform> ().position.y, 0), Quaternion.Euler (-90, 0, -180));
+		}
+		parentPlanet.gameObject.GetComponent<statsManager> ().faith -= 50;
+
+		if (parentPlanet.gameObject.GetComponent<statsManager> ().faith <= 50) 
+		{
+			Debug.Log ("Not Enough Faith");
+		}
+		if (parentPlanet.gameObject.GetComponent<statsManager> ().faith <= 0) 
+		{
+			parentPlanet.gameObject.GetComponent<statsManager> ().faith = 0;
+		}
 
 	}
 

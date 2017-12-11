@@ -85,6 +85,18 @@ public class statsManager : MonoBehaviour
 			planetLevel += 1;
 			changePlanetSize ();
 		}
+
+
+		if (pop >= 500) 
+		{
+			pop = 500;
+		}
+
+		if (wealth <= 0) 
+		{
+			wealth = 0;
+		}
+
 	}
 
 	void OnTriggerEnter (Collider col)
@@ -127,7 +139,7 @@ public class statsManager : MonoBehaviour
 
 		terraSphere.enabled = true;
 		gravityFieldSize.radius = 480;
-		pop +=1;
+		pop +=10;
 
 
 	}
@@ -168,6 +180,8 @@ public class statsManager : MonoBehaviour
 			pop = 0;
 		}
 
+
+
 	}
 
 	void addFaith()
@@ -177,6 +191,7 @@ public class statsManager : MonoBehaviour
 
 		faith = faith + newFaith;
 
+		pop += 10;
 
 		if (faith <= 0)
 		{
