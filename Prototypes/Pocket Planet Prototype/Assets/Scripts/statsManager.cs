@@ -17,6 +17,14 @@ public class statsManager : MonoBehaviour
 
 	public int planetLevel = 0;
 
+	int newFaith;
+
+	public float time = 5;
+
+	public float spawntimer;
+
+	public float speed = 10.0f;
+
 	public GameObject planet;
 
 	public GameObject gravityField;
@@ -45,6 +53,8 @@ public class statsManager : MonoBehaviour
 
 		terraSphere.enabled = false;
 
+		StartCoroutine(spawnTime());
+
 	}
 
 
@@ -67,7 +77,7 @@ public class statsManager : MonoBehaviour
 
 		if (terraPlanetLive == true) 
 		{
-			addPop ();
+			
 		}
 
 		if (planetLevel % 5 == 0 && planetLevel>=5 && terraPlanetLive == false) 
@@ -107,6 +117,7 @@ public class statsManager : MonoBehaviour
 		gravityField.transform.localScale += new Vector3(0.1F, 0.1F, 0.1F);
 		planet.transform.localScale += new Vector3(0.1F, 0.1F, 0.1F);
 		planetSmoke.Play ();
+
 	}
 
 
@@ -116,14 +127,32 @@ public class statsManager : MonoBehaviour
 
 		terraSphere.enabled = true;
 		gravityFieldSize.radius = 480;
-
+		pop +=1;
 
 
 	}
 
+
+	IEnumerator spawnTime()
+	{
+		yield return new WaitForSeconds(time);
+
+		//addScore();
+		if (wealth >= 10  && pop >= 10)
+		{
+		addFaith();
+		}
+		StartCoroutine(spawnTime());
+
+
+	}
+
+
+
+
 	void addPop()
 	{
-		pop = 1000;
+		pop += 1000;
 	}
 
 	void addScore()
@@ -131,12 +160,7 @@ public class statsManager : MonoBehaviour
 		if (planetLevel >= 10)
 		{
 			wealth += 10;
-			faith = wealth / 2;
-			pop -= 10;
-
-			addPop ();
-
-
+			pop -= 100;
 		}
 
 		if (pop <= 0) 
@@ -144,17 +168,20 @@ public class statsManager : MonoBehaviour
 			pop = 0;
 		}
 
-		if (pop >= wealth) 
-		{
-			addFaith();
-		}
-
-
 	}
 
 	void addFaith()
 	{
-		faith = pop/5 + wealth / 2;
+		
+		newFaith = pop/50 + wealth / 20;
+
+		faith = faith + newFaith;
+
+
+		if (faith <= 0)
+		{
+		faith = 0;
+		}
 	}
 
 }

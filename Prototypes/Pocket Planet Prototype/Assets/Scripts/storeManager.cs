@@ -11,7 +11,11 @@ public class storeManager : MonoBehaviour {
 
 	public GameObject itemSpawnLocation;
 
+	public GameObject parentPlanet;
+
 	public Transform CactusItem;
+
+	public bool hasHit;
 
 	void Start () 
 	{
@@ -25,12 +29,15 @@ public class storeManager : MonoBehaviour {
 	void purchaseCactus()
 	{
 		Debug.Log ("cactus bought");
-		Instantiate (CactusItem, new Vector3(itemSpawnLocation.GetComponent<Transform> ().position.x, itemSpawnLocation.GetComponent<Transform> ().position.y, 0), Quaternion.Euler(-90,0,-180));
+		var newCactus = Instantiate (CactusItem, new Vector3(itemSpawnLocation.GetComponent<Transform> ().position.x, itemSpawnLocation.GetComponent<Transform> ().position.y, 0), Quaternion.Euler(-90,0,-180));
+
 	}
+
 
 	// Update is called once per frame
 	void Update ()
 	{
+
 		
 	}
 }

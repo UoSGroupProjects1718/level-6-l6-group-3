@@ -26,18 +26,18 @@ fn DialogCallback =
 pluginManager.loadClass FBXIMP;
 pluginManager.loadClass FBXEXP;
 
-openLog "C:/Users/Ryan/Desktop/LEVEL-~1/PROTOT~1/POCKET~1/Temp/3dsMax.log" mode:"w"
+openLog "C:/Users/Games/DOCUME~1/GitHub/LEVEL-~2/PROTOT~1/POCKET~1/Temp/3dsMax.log" mode:"w"
 print "Start of log file."; flushLog();
 while true do
 (	
-	if ( fileExists "C:/Users/Ryan/Desktop/LEVEL-~1/PROTOT~1/POCKET~1/Temp/MaxCommandPipe" ) then
+	if ( fileExists "C:/Users/Games/DOCUME~1/GitHub/LEVEL-~2/PROTOT~1/POCKET~1/Temp/MaxCommandPipe" ) then
 	(
 		exportNormals = false;
 		exportTangents = false;
 		bakeAnimations = false;
 		useFileUnits = false;
 	
-		waitpipe = (openFile "C:/Users/Ryan/Desktop/LEVEL-~1/PROTOT~1/POCKET~1/Temp/MaxCommandPipe" mode:"r");
+		waitpipe = (openFile "C:/Users/Games/DOCUME~1/GitHub/LEVEL-~2/PROTOT~1/POCKET~1/Temp/MaxCommandPipe" mode:"r");
 		filename = (readLine waitpipe);
 		fbxFilename = (readline waitpipe);
 		
@@ -154,7 +154,7 @@ while true do
 					print "After fbx export"; flushLog();
 				)
 
-				deleteFile "C:/Users/Ryan/Desktop/LEVEL-~1/PROTOT~1/POCKET~1/Temp/MaxCommandPipe";
+				deleteFile "C:/Users/Games/DOCUME~1/GitHub/LEVEL-~2/PROTOT~1/POCKET~1/Temp/MaxCommandPipe";
 				print "Finished max loading and fbx conversion"; flushLog();
 			) -- with defaultAction
 		)
