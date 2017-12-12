@@ -20,10 +20,8 @@ public class triggerGravity : MonoBehaviour {
 			//ParticleSystem.EmissionModule em = flames.GetComponent<ParticleSystem> ().emission;
 			ParticleSystem.EmissionModule em = gameObject.GetComponentInChildren<ParticleSystem>().emission;
 			em.enabled = true;
-
-
-
 		}
+
 	}
 
 	void OnTriggerExit(Collider col)
