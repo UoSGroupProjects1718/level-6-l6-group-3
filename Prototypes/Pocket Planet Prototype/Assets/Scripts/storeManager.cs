@@ -7,15 +7,17 @@ public class storeManager : MonoBehaviour {
 
 	public GameObject menuPanel;
 
-	public Button Cactus;
-
 	public GameObject itemSpawnLocation;
 
 	public GameObject parentPlanet;
 
 	public Transform CactusItem;
 
+	public Button Cactus;
+
 	public bool hasHit;
+
+	public int cactusPrice = 50;
 
 	void Start () 
 	{
@@ -24,26 +26,21 @@ public class storeManager : MonoBehaviour {
 		Button buyCactus = Cactus.GetComponent<Button> ();
 		buyCactus.onClick.AddListener (purchaseCactus);
 
+
 	}
 
 	void purchaseCactus()
 	{
 		Debug.Log ("cactus bought");
-		if (parentPlanet.gameObject.GetComponent<statsManager> ().faith >= 50)
+		if (parentPlanet.gameObject.GetComponent<statsManager> ().faith >= cactusPrice)
 		{
 			var newCactus = Instantiate (CactusItem, new Vector3 (itemSpawnLocation.GetComponent<Transform> ().position.x, itemSpawnLocation.GetComponent<Transform> ().position.y, 0), Quaternion.Euler (-90, 0, -180));
+			parentPlanet.gameObject.GetComponent<statsManager> ().faith -= cactusPrice;
 		}
-		parentPlanet.gameObject.GetComponent<statsManager> ().faith -= 50;
-
-		if (parentPlanet.gameObject.GetComponent<statsManager> ().faith <= 50) 
+		if (parentPlanet.gameObject.GetComponent<statsManager> ().faith <= cactusPrice) 
 		{
 			Debug.Log ("Not Enough Faith");
 		}
-		if (parentPlanet.gameObject.GetComponent<statsManager> ().faith <= 0) 
-		{
-			parentPlanet.gameObject.GetComponent<statsManager> ().faith = 0;
-		}
-
 	}
 
 
@@ -51,6 +48,9 @@ public class storeManager : MonoBehaviour {
 	void Update ()
 	{
 
-		
+		if (parentPlanet.gameObject.GetComponent<statsManager> ().faith <= 0) 
+		{
+			parentPlanet.gameObject.GetComponent<statsManager> ().faith = 0;
+		}
 	}
 }

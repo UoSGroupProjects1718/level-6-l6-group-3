@@ -73,11 +73,7 @@ public class statsManager : MonoBehaviour
 		{
 			changePlanetType ();
 			terraPlanetLive = true;
-		}
-
-		if (terraPlanetLive == true) 
-		{
-			
+			planetLevel +=1;
 		}
 
 		if (planetLevel % 5 == 0 && planetLevel>=5 && terraPlanetLive == false) 
@@ -86,11 +82,6 @@ public class statsManager : MonoBehaviour
 			changePlanetSize ();
 		}
 
-
-		if (pop >= 500) 
-		{
-			pop = 500;
-		}
 
 		if (wealth <= 0) 
 		{
@@ -116,10 +107,6 @@ public class statsManager : MonoBehaviour
 
 			//ParticleSystem.EmissionModule em = gameObject.GetComponentInChildren<ParticleSystem>().emission;
 			//em.enabled = false;
-
-
-
-
 		}
 	}
 
@@ -139,7 +126,7 @@ public class statsManager : MonoBehaviour
 
 		terraSphere.enabled = true;
 		gravityFieldSize.radius = 480;
-		pop +=10;
+		pop +=1000;
 
 
 	}
@@ -149,7 +136,7 @@ public class statsManager : MonoBehaviour
 	{
 		yield return new WaitForSeconds(time);
 
-		//addScore();
+		pop += 1;
 		if (wealth >= 10  && pop >= 10)
 		{
 		addFaith();
@@ -191,7 +178,7 @@ public class statsManager : MonoBehaviour
 
 		faith = faith + newFaith;
 
-		pop += 10;
+
 
 		if (faith <= 0)
 		{

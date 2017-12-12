@@ -8,13 +8,11 @@ public class spawner : MonoBehaviour
 
 	public Transform SpawnerPos;
 	public float time = 5;
-	public float spawntimer;
 	public float speed = 10.0f;
 
 	void Start()
 	{
 		StartCoroutine(spawnTime());
-		spawntimer = 600;
 	}
 
 	IEnumerator spawnTime()
@@ -32,16 +30,8 @@ public class spawner : MonoBehaviour
 	void FixedUpdate()
 	{
 
-		spawntimer -= Time.deltaTime;
-
-		if (spawntimer <= 1)
-		{
-			StopAllCoroutines();
-		}
-
-
 		float step = speed * Time.deltaTime;
-		//transform.Translate(Vector3.right * step, Space.World);
+
 
 	}
 }
