@@ -9,6 +9,13 @@ public class statsManager : MonoBehaviour
 	public int pop = 0;
 	public int faith = 0;
 
+	public int ironPart = 0;
+	public int icePart = 0;
+	public int nickelPart = 0;
+	public int goldPart = 0;
+
+
+
 	public Text PlanetWealthText;
 	public Text PopulationText;
 	public Text FaithPointsText;
@@ -30,16 +37,25 @@ public class statsManager : MonoBehaviour
 	public GameObject gravityField;
 
 	public GameObject terraPlanet;
+	public Renderer terraRend;
+	public bool terraPlanetLive;
+	public SphereCollider terraSphere;
+
+	public GameObject rockPlanet;
+	public Renderer rockRend;
+	public bool rockPlanetLive;
+	public SphereCollider rockSphere;
+
+	public GameObject goldPlanet;
+	public Renderer goldRend;
+	public bool goldPlanetLive;
+	public SphereCollider goldSphere;
 
 	public ParticleSystem planetSmoke;
 
-	public Renderer terraRend;
-
-	public SphereCollider terraSphere;
-
 	public SphereCollider gravityFieldSize;
 
-	public bool terraPlanetLive;
+
 
 	void Start ()
 	{
@@ -71,16 +87,18 @@ public class statsManager : MonoBehaviour
 
 		if (planetLevel == 13) 
 		{
-			changePlanetType ();
-			terraPlanetLive = true;
+			//changePlanetRocky ();
+			//changePlanetTerra ();
+			//changePlanetGold();
+			changePlanetType();
 			planetLevel +=1;
 		}
 
-		if (planetLevel % 5 == 0 && planetLevel>=5 && terraPlanetLive == false) 
-		{
-			planetLevel += 1;
-			changePlanetSize ();
-		}
+		//if (planetLevel % 5 == 0 && planetLevel>=5 && terraPlanetLive == false) 
+		//{
+		//	planetLevel += 1;
+		//	changePlanetSize ();
+		//}
 
 
 		if (wealth <= 0) 
@@ -98,18 +116,29 @@ public class statsManager : MonoBehaviour
 			addScore ();
 			Destroy (col.gameObject);
 
+			ironPart += col.gameObject.GetComponent<asteroidStats> ().iron;
+			icePart += col.gameObject.GetComponent<asteroidStats> ().ice;
+			nickelPart += col.gameObject.GetComponent<asteroidStats> ().nickel;
+			goldPart += col.gameObject.GetComponent<asteroidStats> ().gold;
 
-			//col.gameObject.transform.position = new Vector3 (1400, 450, -136);
-			//col.gameObject.GetComponent<PlayerGravityBody> ().inGravityField = false;
-			//col.gameObject.GetComponent<asteroidPath> ().onPath = true;
-			//col.gameObject.GetComponent<asteroidStats>().statsAdded = false;
-			//col.gameObject.GetComponent<Renderer>().material.color = Color.gray;
-
-			//ParticleSystem.EmissionModule em = gameObject.GetComponentInChildren<ParticleSystem>().emission;
-			//em.enabled = false;
 		}
 	}
 
+
+	void changePlanetType()
+	{
+		if (ironPart >= 20) 
+		{
+			changePlanetRocky ();
+		}
+		if (goldPart >= 20) {
+			changePlanetGold ();
+		} 
+		else 
+		{
+			changePlanetTerra ();
+		}
+	}
 
 	void changePlanetSize()
 	{
@@ -120,10 +149,11 @@ public class statsManager : MonoBehaviour
 	}
 
 
-	void changePlanetType()
+	void changePlanetTerra()
 	{
-		terraRend.enabled = true;
 
+		terraPlanetLive = true;
+		terraRend.enabled = true;
 		terraSphere.enabled = true;
 		gravityFieldSize.radius = 480;
 		pop +=1000;
@@ -131,6 +161,23 @@ public class statsManager : MonoBehaviour
 
 	}
 
+	void changePlanetRocky()
+	{
+		rockPlanetLive = true;
+		rockRend.enabled = true;
+		rockSphere.enabled = true;
+		gravityFieldSize.radius = 480;
+		pop +=1000;
+	}
+
+	void changePlanetGold()
+	{
+		goldPlanetLive = true;
+		goldRend.enabled = true;
+		goldSphere.enabled = true;
+		gravityFieldSize.radius = 480;
+		pop +=1000;
+	}
 
 	IEnumerator spawnTime()
 	{
