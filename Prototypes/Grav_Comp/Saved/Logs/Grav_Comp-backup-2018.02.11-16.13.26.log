@@ -1,0 +1,26 @@
+﻿Log file open, 02/11/18 16:10:47
+LogInit:Display: Running engine for game: Grav_Comp
+LogPlatformFile: Not using cached read wrapper
+LogInit:Display: RandInit(551039490) SRandInit(551039490).
+LogTaskGraph: Started task graph with 5 named threads and 8 total threads with 1 sets of task threads.
+LogStats: Stats thread started at 0.097694
+LogExit: Preparing to exit.
+LogModuleManager: Shutting down and abandoning module AnimationModifiers (34)
+LogModuleManager: Shutting down and abandoning module PropertyEditor (33)
+LogModuleManager: Shutting down and abandoning module AudioEditor (30)
+LogModuleManager: Shutting down and abandoning module TextureCompressor (28)
+LogModuleManager: Shutting down and abandoning module ShaderCore (26)
+LogModuleManager: Shutting down and abandoning module Landscape (24)
+LogModuleManager: Shutting down and abandoning module SlateRHIRenderer (22)
+LogModuleManager: Shutting down and abandoning module OpenGLDrv (20)
+LogModuleManager: Shutting down and abandoning module D3D11RHI (18)
+LogModuleManager: Shutting down and abandoning module AnimGraphRuntime (16)
+LogModuleManager: Shutting down and abandoning module Renderer (14)
+LogModuleManager: Shutting down and abandoning module Engine (12)
+LogModuleManager: Shutting down and abandoning module CoreUObject (10)
+LogModuleManager: Shutting down and abandoning module NetworkFile (8)
+LogModuleManager: Shutting down and abandoning module StreamingFile (6)
+LogModuleManager: Shutting down and abandoning module SandboxFile (4)
+LogModuleManager: Shutting down and abandoning module PakFile (2)
+LogExit: Exiting.
+Log file closed, 02/11/18 16:10:47
