@@ -1,0 +1,5 @@
+To turn these PNG sets into skyspheres for Unreal follow this tutorial video, it is about 20 minutes long but works perfectly
+https://www.youtube.com/watch?v=l3sN0ZQDEpY
+Make sure that the images line up on the cube before turbo smooth
+Make sure that the poly's are two sided in Unreal
+Make sure that Unreal uses the textures as emmisive as well as the normal, because the skyshpere wont be lit in the scene, so this will light itself.
