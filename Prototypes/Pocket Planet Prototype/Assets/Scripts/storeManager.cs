@@ -6,38 +6,78 @@ using UnityEngine.UI;
 public class storeManager : MonoBehaviour {
 
 	public GameObject menuPanel;
-
 	public GameObject itemSpawnLocation;
-
 	public GameObject parentPlanet;
 
-	public Transform CactusItem;
+	public Transform treeItem;
+	public Transform PyramidItem;
+	public Transform shipItem;
 
-	public Button Cactus;
+	public Button treeButton;
+	public Button PyramidButton;
+	public Button shipButton;
+
 
 	public bool hasHit;
-
-	public int cactusPrice = 50;
+	public int treePrice = 50;
+	public int pyramidPrice = 50;
+	public int shipPrice = 150;
 
 	void Start () 
 	{
 		menuPanel.gameObject.SetActive (false);
 
-		Button buyCactus = Cactus.GetComponent<Button> ();
-		buyCactus.onClick.AddListener (purchaseCactus);
+		Button buytree = treeButton.GetComponent<Button> ();
+		buytree.onClick.AddListener (purchasetree);
 
+		Button buyPyramid = PyramidButton.GetComponent<Button> ();
+		buyPyramid.onClick.AddListener (purchasePyramid);
+
+		Button buyShip = shipButton.GetComponent<Button> ();
+		buyShip.onClick.AddListener (purchaseShip);
 
 	}
 
-	void purchaseCactus()
+
+	void purchasePyramid()
 	{
-		Debug.Log ("cactus bought");
-		if (parentPlanet.gameObject.GetComponent<statsManager> ().faith >= cactusPrice)
+		Debug.Log ("pyramid bought");
+		if (parentPlanet.gameObject.GetComponent<statsManager> ().faith >= pyramidPrice)
 		{
-			var newCactus = Instantiate (CactusItem, new Vector3 (itemSpawnLocation.GetComponent<Transform> ().position.x, itemSpawnLocation.GetComponent<Transform> ().position.y, 0), Quaternion.Euler (-90, 0, -180));
-			parentPlanet.gameObject.GetComponent<statsManager> ().faith -= cactusPrice;
+			var newPyramid = Instantiate (PyramidItem, new Vector3 (itemSpawnLocation.GetComponent<Transform> ().position.x, itemSpawnLocation.GetComponent<Transform> ().position.y, itemSpawnLocation.GetComponent<Transform> ().position.z), Quaternion.Euler (-90, 0, -180));
+			parentPlanet.gameObject.GetComponent<statsManager> ().faith -= pyramidPrice;
 		}
-		if (parentPlanet.gameObject.GetComponent<statsManager> ().faith <= cactusPrice) 
+		if (parentPlanet.gameObject.GetComponent<statsManager> ().faith <= pyramidPrice) 
+		{
+			Debug.Log ("Not Enough Faith");
+		}
+
+	}
+
+
+	void purchasetree()
+	{
+		Debug.Log ("tree bought");
+		if (parentPlanet.gameObject.GetComponent<statsManager> ().faith >= treePrice)
+		{
+			var newtree = Instantiate (treeItem, new Vector3 (itemSpawnLocation.GetComponent<Transform> ().position.x, itemSpawnLocation.GetComponent<Transform> ().position.y, itemSpawnLocation.GetComponent<Transform> ().position.z), Quaternion.Euler (-90, 0, -180));
+			parentPlanet.gameObject.GetComponent<statsManager> ().faith -= treePrice;
+		}
+		if (parentPlanet.gameObject.GetComponent<statsManager> ().faith <= treePrice) 
+		{
+			Debug.Log ("Not Enough Faith");
+		}
+	}
+
+	void purchaseShip()
+	{
+		Debug.Log ("ship bought");
+		if (parentPlanet.gameObject.GetComponent<statsManager> ().faith >= shipPrice)
+		{
+			var newShip = Instantiate (shipItem, new Vector3 (itemSpawnLocation.GetComponent<Transform> ().position.x, itemSpawnLocation.GetComponent<Transform> ().position.y, itemSpawnLocation.GetComponent<Transform> ().position.z), Quaternion.Euler (-90, 0, -180));
+			parentPlanet.gameObject.GetComponent<statsManager> ().faith -= shipPrice;
+		}
+		if (parentPlanet.gameObject.GetComponent<statsManager> ().faith <= shipPrice) 
 		{
 			Debug.Log ("Not Enough Faith");
 		}
