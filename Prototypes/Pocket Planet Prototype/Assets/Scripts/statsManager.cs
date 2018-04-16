@@ -37,19 +37,35 @@ public class statsManager : MonoBehaviour
 	public GameObject gravityField;
 
 	public GameObject terraPlanet;
-	public Renderer terraRend;
+
 	public bool terraPlanetLive;
 	public SphereCollider terraSphere;
 
 	public GameObject rockPlanet;
-	public Renderer rockRend;
+
 	public bool rockPlanetLive;
 	public SphereCollider rockSphere;
 
 	public GameObject goldPlanet;
-	public Renderer goldRend;
+
 	public bool goldPlanetLive;
 	public SphereCollider goldSphere;
+
+
+	public Renderer terraRend;
+	public Renderer rockRend;
+	public Renderer goldRend;
+
+	public Mesh goldMesh1;
+	public Mesh goldMesh2;
+	public Mesh goldMeshFinal;
+
+	public GameObject stage1;
+	public SphereCollider stage1col;
+	public GameObject stage2;
+	public SphereCollider stage2col;
+	public GameObject finalStage;
+	public SphereCollider finalCol;
 
 	public ParticleSystem planetSmoke;
 
@@ -87,19 +103,17 @@ public class statsManager : MonoBehaviour
 
 		if (planetLevel == 13) 
 		{
-			//changePlanetRocky ();
-			//changePlanetTerra ();
-			//changePlanetGold();
+
 			changePlanetType();
 			planetLevel +=1;
 		}
 
-		//if (planetLevel % 5 == 0 && planetLevel>=5 && terraPlanetLive == false) 
-		//{
-		//	planetLevel += 1;
-		//	changePlanetSize ();
-		//}
+		if (planetLevel == 20) 
+		{
 
+			changePlanetType();
+			planetLevel +=1;
+		}
 
 		if (wealth <= 0) 
 		{
@@ -127,12 +141,15 @@ public class statsManager : MonoBehaviour
 
 	void changePlanetType()
 	{
-		if (ironPart >= 20) 
+		if (ironPart >= 2000) 
 		{
 			changePlanetRocky ();
 		}
 		if (goldPart >= 20) {
-			changePlanetGold ();
+			changePlanetGoldStage1 ();
+		} 
+		if (goldPart >= 100) {
+			changePlanetGoldStage2 ();
 		} 
 		else 
 		{
@@ -170,14 +187,24 @@ public class statsManager : MonoBehaviour
 		pop +=1000;
 	}
 
-	void changePlanetGold()
+	void changePlanetGoldStage1()
 	{
 		goldPlanetLive = true;
-		goldRend.enabled = true;
-		goldSphere.enabled = true;
+		stage1.gameObject.GetComponent<MeshFilter>().mesh = goldMesh1;
+		stage1col.enabled = true;
 		gravityFieldSize.radius = 480;
 		pop +=1000;
 	}
+
+	void changePlanetGoldStage2()
+	{
+		goldPlanetLive = true;
+		stage2.gameObject.GetComponent<MeshFilter>().mesh = goldMesh2;
+		stage2col.enabled = true;
+		gravityFieldSize.radius = 480;
+		pop +=1000;
+	}
+
 
 	IEnumerator spawnTime()
 	{
