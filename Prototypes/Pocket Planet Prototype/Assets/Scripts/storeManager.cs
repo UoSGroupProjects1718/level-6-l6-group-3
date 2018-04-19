@@ -23,6 +23,8 @@ public class storeManager : MonoBehaviour {
 	public int pyramidPrice = 50;
 	public int shipPrice = 150;
 
+	public GameObject[] storeItems;
+
 	void Start () 
 	{
 		menuPanel.gameObject.SetActive (false);
@@ -35,6 +37,8 @@ public class storeManager : MonoBehaviour {
 
 		Button buyShip = shipButton.GetComponent<Button> ();
 		buyShip.onClick.AddListener (purchaseShip);
+
+
 
 	}
 
@@ -72,15 +76,13 @@ public class storeManager : MonoBehaviour {
 	void purchaseShip()
 	{
 		Debug.Log ("ship bought");
-		if (parentPlanet.gameObject.GetComponent<statsManager> ().faith >= shipPrice)
-		{
-			var newShip = Instantiate (shipItem, new Vector3 (itemSpawnLocation.GetComponent<Transform> ().position.x, itemSpawnLocation.GetComponent<Transform> ().position.y, itemSpawnLocation.GetComponent<Transform> ().position.z), Quaternion.Euler (-90, 0, -180));
-			parentPlanet.gameObject.GetComponent<statsManager> ().faith -= shipPrice;
-		}
 		if (parentPlanet.gameObject.GetComponent<statsManager> ().faith <= shipPrice) 
 		{
 			Debug.Log ("Not Enough Faith");
 		}
+		Instantiate(storeItems[0], new Vector3 (itemSpawnLocation.GetComponent<Transform> ().position.x, itemSpawnLocation.GetComponent<Transform> ().position.y, itemSpawnLocation.GetComponent<Transform> ().position.z), Quaternion.Euler (-90, 0, -180));
+
+
 	}
 
 
