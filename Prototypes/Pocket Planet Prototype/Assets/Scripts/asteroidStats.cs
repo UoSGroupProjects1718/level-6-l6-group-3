@@ -9,6 +9,8 @@ public class asteroidStats : MonoBehaviour {
     public int ice = 0;
     public int nickel = 0;
     public int gold = 0;
+	public int addedWealth = 0;
+	public int damage = 0;
 
     public bool statsAdded = false;
 	public bool statsVisable = false;
@@ -40,10 +42,10 @@ public class asteroidStats : MonoBehaviour {
 
 	void addStats()
 	{
-		ironStat.text = iron.ToString();
-		iceStat.text = ice.ToString ();
-		nickelStat.text = nickel.ToString ();
-		goldStat.text = gold.ToString ();
+		//ironStat.text = iron.ToString();
+		//iceStat.text = ice.ToString ();
+		//nickelStat.text = nickel.ToString ();
+		//goldStat.text = gold.ToString ();
 	}
 
     void Update () 
