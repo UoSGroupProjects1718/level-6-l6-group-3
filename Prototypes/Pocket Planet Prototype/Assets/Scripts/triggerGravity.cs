@@ -4,22 +4,28 @@ using UnityEngine;
 
 public class triggerGravity : MonoBehaviour {
 
-	//public GameObject flames;
+
+
+	void Start()
+	{
+
+
+	}
+
+
 
 
 	void OnTriggerEnter(Collider col)
 	{
 		if (col.gameObject.tag == "gravityField")
 		{
-			ParticleSystem ps = GetComponent<ParticleSystem> ();
 			//Debug.Log ("hit");
 			gameObject.GetComponent<PlayerGravityBody> ().inGravityField = true;
 			gameObject.GetComponent<Rigidbody> ().isKinematic = false;
-			GetComponent<Renderer>().material.color = Color.red;
+			gameObject.GetComponent<Renderer>().material.color = Color.red;
+			gameObject.GetComponent<ParticleSystem>().Play();
 
-			//ParticleSystem.EmissionModule em = flames.GetComponent<ParticleSystem> ().emission;
-			//ParticleSystem.EmissionModule em = gameObject.GetComponentInChildren<ParticleSystem>().emission;
-			//em.enabled = true;
+
 		}
 
 	}
@@ -30,9 +36,6 @@ public class triggerGravity : MonoBehaviour {
 		{
 			Debug.Log ("left");
 			gameObject.GetComponent<PlayerGravityBody> ().inGravityField = false;
-
-			ParticleSystem.EmissionModule em = gameObject.GetComponentInChildren<ParticleSystem>().emission;
-			em.enabled = false;
 
 		}
 	}

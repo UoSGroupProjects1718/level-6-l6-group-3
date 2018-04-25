@@ -161,7 +161,10 @@ public class statsManager : MonoBehaviour
 		{
 			planetLevel += 1;
 			addScore ();
-			Destroy (col.gameObject);
+
+			col.gameObject.transform.position = new Vector3 (5000, 5000, 5000);
+
+			Destroy (col.gameObject,5);
 
 			ironPart += col.gameObject.GetComponent<asteroidStats> ().iron;
 			icePart += col.gameObject.GetComponent<asteroidStats> ().ice;
