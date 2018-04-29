@@ -34,26 +34,6 @@ public class statsManager : MonoBehaviour
 	public Text nextAsteroidValue;
 	public Text nextAsteroidDamage;
 
-
-	//public GameObject terraPlanet;
-
-	//public bool terraPlanetLive;
-	//public SphereCollider terraSphere;
-
-	//public GameObject rockPlanet;
-
-	//public bool rockPlanetLive;
-	//public SphereCollider rockSphere;
-
-//	public GameObject goldPlanet;
-
-	//public bool goldPlanetLive;
-	//public SphereCollider goldSphere;
-
-
-	//public Renderer terraRend;
-	//public Renderer rockRend;
-	//public Renderer goldRend;
 	[Header("Gold Planet Properties")]
 	public Mesh goldMesh1;
 	public Mesh goldMesh2;
@@ -64,13 +44,28 @@ public class statsManager : MonoBehaviour
 	public Mesh nickelMesh1;
 	public Mesh nickelMesh2;
 	public Mesh nickelMeshFinal;
+	public Material nickelMat;
 	public bool nickelPlanetLive;
 	[Header("Ice Planet Properties")]
 	public Mesh iceMesh1;
 	public Mesh iceMesh2;
 	public Mesh iceMeshFinal;
-	public Material iceMat;
+	public Material[] iceMat;
 	public bool icePlanetLive;
+	[Header("Terra Planet Properties")]
+	public Mesh terraMesh1;
+	public Mesh terraMesh2;
+	public Mesh terraMeshFinal;
+	public Material[] terraMatS1;
+	public Material[] terraMatS2;
+	public Material[] terraMatS3;
+	public bool terraPlanetLive;
+	[Header("Ind Planet Properties")]
+	public Mesh IndMesh1;
+	public Mesh IndMesh2;
+	public Mesh IndMeshFinal;
+	public Material[] IndMatS1;
+	public bool IndPlanetLive;
 	[Header("Core Planet Properties")]
 	public GameObject stage1;
 	public SphereCollider stage1col;
@@ -178,8 +173,6 @@ public class statsManager : MonoBehaviour
 	void changePlanetTypeStage1()
 	{
 
-
-
 		if (goldPlanetLive == true) 
 		{
 			changePlanetGoldStage1 ();
@@ -188,6 +181,18 @@ public class statsManager : MonoBehaviour
 		if (icePlanetLive == true)
 		{
 			changePlanetIceStage1 ();
+		}
+		if (nickelPlanetLive == true)
+		{
+			changePlanetNickelStage1 ();
+		}
+		if (terraPlanetLive == true)
+		{
+			changePlanetTerraStage1 ();
+		}
+		if (IndPlanetLive == true)
+		{
+			changePlanetIndStage1 ();
 		}
 	}
 
@@ -202,6 +207,18 @@ public class statsManager : MonoBehaviour
 		{
 			changePlanetIceStage2 ();
 		}
+		if (nickelPlanetLive == true)
+		{
+			changePlanetNickelStage2 ();
+		}
+		if (terraPlanetLive == true)
+		{
+			changePlanetTerraStage2 ();
+		}
+		if (IndPlanetLive == true)
+		{
+			changePlanetIndStage2 ();
+		}
 	}
 
 	void changePlanetTypeFinalStage()
@@ -214,6 +231,18 @@ public class statsManager : MonoBehaviour
 		if (icePlanetLive == true)
 		{
 			changePlanetIceFinalStage ();
+		}
+		if (nickelPlanetLive == true)
+		{
+			changePlanetNickelFinalStage ();
+		}
+		if (terraPlanetLive == true)
+		{
+			changePlanetTerraFinalStage ();
+		}
+		if (IndPlanetLive == true)
+		{
+			changePlanetIndFinalStage ();
 		}
 	}
 
@@ -230,7 +259,9 @@ public class statsManager : MonoBehaviour
 	{
 		stage1.gameObject.GetComponent<MeshFilter>().mesh = goldMesh1;
 		stage1.gameObject.GetComponent<Renderer>().material = goldMat;
+		stage1.gameObject.GetComponent<SphereCollider> ().radius = 38.3f;
 		stage1col.enabled = true;
+
 		gravityFieldSize.radius = 480;
 		pop +=1000;
 	}
@@ -260,7 +291,16 @@ public class statsManager : MonoBehaviour
 	void changePlanetIceStage1()
 	{
 		stage1.gameObject.GetComponent<MeshFilter>().mesh = iceMesh1;
-		stage1.gameObject.GetComponent<Renderer>().material = iceMat;
+		//stage1.gameObject.GetComponent<Renderer>().material = iceMat;
+
+		Material[] mats = stage1.gameObject.GetComponent<MeshRenderer> ().materials;
+		for (int i = 0; i < stage1.gameObject.GetComponent<Renderer>().materials.Length; i++) 
+		{
+			mats [i] = iceMat [i];
+		}
+		stage1.gameObject.GetComponent<MeshRenderer> ().materials = mats;
+
+
 		stage1col.enabled = true;
 		gravityFieldSize.radius = 480;
 		pop +=1000;
@@ -269,9 +309,15 @@ public class statsManager : MonoBehaviour
 	void changePlanetIceStage2()
 	{
 		stage2.gameObject.GetComponent<MeshFilter>().mesh = iceMesh2;
-		stage2.gameObject.GetComponent<Renderer>().material = iceMat;
+		Material[] mats = stage2.gameObject.GetComponent<MeshRenderer> ().materials;
+		for (int i = 0; i < stage1.gameObject.GetComponent<Renderer>().materials.Length; i++) 
+		{
+			mats [i] = iceMat [i];
+		}
+		stage2.gameObject.GetComponent<MeshRenderer> ().materials = mats;
 		stage1col.enabled = false;
 		stage2col.enabled = true;
+		stage2.gameObject.GetComponent<SphereCollider> ().radius = 40.3f;
 		gravityFieldSize.radius = 480;
 		pop +=1000;
 	}
@@ -279,14 +325,163 @@ public class statsManager : MonoBehaviour
 	void changePlanetIceFinalStage()
 	{
 		finalStage.gameObject.GetComponent<MeshFilter>().mesh = iceMeshFinal;
-		finalStage.gameObject.GetComponent<Renderer>().material = iceMat;
+		Material[] mats = finalStage.gameObject.GetComponent<MeshRenderer> ().materials;
+		for (int i = 0; i < stage1.gameObject.GetComponent<Renderer>().materials.Length; i++) 
+		{
+			mats [i] = iceMat [i];
+		}
+		finalStage.gameObject.GetComponent<MeshRenderer> ().materials = mats;
 		finalCol.enabled = true;
 		stage2col.enabled = false;
+		finalStage.gameObject.GetComponent<SphereCollider> ().radius = 58.3f;
 		gravityFieldSize.radius = 480;
 		pop +=1000;
 	}
 
+	//************************************NICKEL PLANET*****************************************
 
+	void changePlanetNickelStage1()
+	{
+		stage1.gameObject.GetComponent<MeshFilter>().mesh = nickelMesh1;
+		stage1.gameObject.GetComponent<Renderer>().material = nickelMat;
+		stage1col.enabled = true;
+		gravityFieldSize.radius = 480;
+		pop +=1000;
+	}
+
+	void changePlanetNickelStage2()
+	{
+		stage2.gameObject.GetComponent<MeshFilter>().mesh = nickelMesh2;
+		stage2.gameObject.GetComponent<Renderer>().material = nickelMat;
+		stage1col.enabled = false;
+		stage2col.enabled = true;
+		gravityFieldSize.radius = 480;
+		pop +=1000;
+	}
+
+	void changePlanetNickelFinalStage()
+	{
+		finalStage.gameObject.GetComponent<MeshFilter>().mesh = nickelMeshFinal;
+		finalStage.gameObject.GetComponent<Renderer>().material = nickelMat;
+		finalStage.gameObject.GetComponent<SphereCollider> ().radius = 44.2f;
+		finalCol.enabled = true;
+		stage2col.enabled = false;
+		stage1.gameObject.GetComponent<MeshRenderer> ().enabled = false;
+		stage2.gameObject.GetComponent<MeshRenderer> ().enabled = false;
+		gravityFieldSize.radius = 480;
+		pop +=1000;
+	}
+	//************************************TERRA PLANET*****************************************
+
+	void changePlanetTerraStage1()
+	{
+		stage1.gameObject.GetComponent<MeshFilter>().mesh = terraMesh1;
+
+		Material[] mats = stage1.gameObject.GetComponent<MeshRenderer> ().materials;
+		for (int i = 0; i < stage1.gameObject.GetComponent<Renderer>().materials.Length; i++) 
+		{
+			mats [i] = terraMatS1 [i];
+		}
+		stage1.gameObject.GetComponent<MeshRenderer> ().materials = mats;
+		stage1col.enabled = true;
+		stage1.gameObject.GetComponent<SphereCollider> ().radius = 50f;
+		stage1.gameObject.GetComponent<SphereCollider> ().center = new Vector3(8f,-0.12f,-3.46f);
+		gravityFieldSize.radius = 480;
+		pop +=1000;
+	}
+
+	void changePlanetTerraStage2()
+	{
+		stage2.gameObject.GetComponent<MeshFilter>().mesh = terraMesh2;
+		Material[] mats = stage2.gameObject.GetComponent<MeshRenderer> ().materials;
+		for (int i = 0; i < stage2.gameObject.GetComponent<Renderer>().materials.Length; i++) 
+		{
+			mats [i] = terraMatS2 [i];
+		}
+		stage2.gameObject.GetComponent<MeshRenderer> ().materials = mats;
+		stage1col.enabled = false;
+		stage2col.enabled = true;
+		stage2.gameObject.GetComponent<SphereCollider> ().radius = 49.4f;
+		stage2.gameObject.GetComponent<SphereCollider> ().center = new Vector3(8.8f,-1f,-3.8f);
+		gravityFieldSize.radius = 480;
+		pop +=1000;
+	}
+
+	void changePlanetTerraFinalStage()
+	{
+		finalStage.gameObject.GetComponent<MeshFilter>().mesh = terraMeshFinal;
+		Material[] mats = finalStage.gameObject.GetComponent<MeshRenderer> ().materials;
+		for (int i = 0; i < finalStage.gameObject.GetComponent<Renderer>().materials.Length; i++) 
+		{
+			mats [i] = terraMatS3 [i];
+		}
+		finalStage.gameObject.GetComponent<MeshRenderer> ().materials = mats;
+		finalStage.gameObject.GetComponent<SphereCollider> ().radius = 44.2f;
+		finalCol.enabled = true;
+		stage2col.enabled = false;
+		stage1.gameObject.GetComponent<MeshRenderer> ().enabled = false;
+		stage2.gameObject.GetComponent<MeshRenderer> ().enabled = false;
+		finalStage.gameObject.GetComponent<SphereCollider> ().radius = 49.2f;
+		finalStage.gameObject.GetComponent<SphereCollider> ().center = new Vector3(6.54f,1.20f,-3f);
+		gravityFieldSize.radius = 480;
+		pop +=1000;
+	}
+
+	//************************************INDUSTRIAL PLANET*****************************************
+
+	void changePlanetIndStage1()
+	{
+		stage1.gameObject.GetComponent<MeshFilter>().mesh = IndMesh1;
+
+		Material[] mats = stage1.gameObject.GetComponent<MeshRenderer> ().materials;
+		for (int i = 0; i < stage1.gameObject.GetComponent<Renderer>().materials.Length; i++) 
+		{
+			mats [i] = IndMatS1 [i];
+		}
+		stage1.gameObject.GetComponent<MeshRenderer> ().materials = mats;
+		stage1col.enabled = true;
+		stage1.gameObject.GetComponent<SphereCollider> ().radius = 50f;
+		stage1.gameObject.GetComponent<SphereCollider> ().center = new Vector3(8f,-0.12f,-3.46f);
+		gravityFieldSize.radius = 480;
+		pop +=1000;
+	}
+
+	void changePlanetIndStage2()
+	{
+		stage2.gameObject.GetComponent<MeshFilter>().mesh = IndMesh2;
+		Material[] mats = stage2.gameObject.GetComponent<MeshRenderer> ().materials;
+		for (int i = 0; i < stage2.gameObject.GetComponent<Renderer>().materials.Length; i++) 
+		{
+			mats [i] = IndMatS1 [i];
+		}
+		stage2.gameObject.GetComponent<MeshRenderer> ().materials = mats;
+		stage1col.enabled = false;
+		stage2col.enabled = true;
+		stage2.gameObject.GetComponent<SphereCollider> ().radius = 49.4f;
+		stage2.gameObject.GetComponent<SphereCollider> ().center = new Vector3(8.8f,-1f,-3.8f);
+		gravityFieldSize.radius = 480;
+		pop +=1000;
+	}
+
+	void changePlanetIndFinalStage()
+	{
+		finalStage.gameObject.GetComponent<MeshFilter>().mesh = IndMeshFinal;
+		Material[] mats = finalStage.gameObject.GetComponent<MeshRenderer> ().materials;
+		for (int i = 0; i < finalStage.gameObject.GetComponent<Renderer>().materials.Length; i++) 
+		{
+			mats [i] = IndMatS1 [i];
+		}
+		finalStage.gameObject.GetComponent<MeshRenderer> ().materials = mats;
+		finalStage.gameObject.GetComponent<SphereCollider> ().radius = 44.2f;
+		finalCol.enabled = true;
+		stage2col.enabled = false;
+		stage1.gameObject.GetComponent<MeshRenderer> ().enabled = false;
+		stage2.gameObject.GetComponent<MeshRenderer> ().enabled = false;
+		finalStage.gameObject.GetComponent<SphereCollider> ().radius = 49.2f;
+		finalStage.gameObject.GetComponent<SphereCollider> ().center = new Vector3(6.54f,1.20f,-3f);
+		gravityFieldSize.radius = 480;
+		pop +=1000;
+	}
 
 
 	IEnumerator spawnTime()
