@@ -9,6 +9,8 @@ public class asteroidStats : MonoBehaviour {
     public int ice = 0;
     public int nickel = 0;
     public int gold = 0;
+	public int water = 0;
+	public int carbon = 0;
 	public int addedWealth = 0;
 	public int damage = 0;
 
@@ -20,6 +22,8 @@ public class asteroidStats : MonoBehaviour {
 	public Text iceStat;
 	public Text nickelStat;
 	public Text goldStat;
+	public Text waterStat;
+	public Text carbonStat;
 
 
     void OnTriggerEnter(Collider col)
@@ -32,8 +36,10 @@ public class asteroidStats : MonoBehaviour {
             ice = Random.Range(1, 20);
             nickel = Random.Range(1, 20);
             gold = Random.Range(1, 20);
-
-            Debug.Log("collided");
+			water = Random.Range (1, 20);
+			carbon = Random.Range (1, 20);
+			addedWealth = Random.Range (50, 100);
+			damage = Random.Range (20, 100);
 
 			addStats ();
 

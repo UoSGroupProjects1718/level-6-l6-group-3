@@ -12,7 +12,12 @@ public class statsManager : MonoBehaviour
 	public int icePart = 0;
 	public int nickelPart = 0;
 	public int goldPart = 0;
+	public int waterPart = 0;
+	public int carbonPart = 0;
 	public int planetLevel = 0;
+	public int wealthPart = 0;
+	public int damagePart = 0;
+
 	int newFaith;
 
 	public float time = 5;
@@ -32,7 +37,10 @@ public class statsManager : MonoBehaviour
 	public Text nextAsteroidNickel;
 	public Text nextAsteroidIron;
 	public Text nextAsteroidValue;
+	public Text nextAsteroidWater;
+	public Text nextAsteroidCarbon;
 	public Text nextAsteroidDamage;
+	public Text nextAsteroidWealth;
 
 	[Header("Gold Planet Properties")]
 	public Mesh goldMesh1;
@@ -113,7 +121,10 @@ public class statsManager : MonoBehaviour
 		nextAsteroidIce.text = nearest.gameObject.GetComponent<asteroidStats> ().ice.ToString ();
 		nextAsteroidNickel.text = nearest.gameObject.GetComponent<asteroidStats> ().nickel.ToString ();
 		nextAsteroidIron.text = nearest.gameObject.GetComponent<asteroidStats> ().iron.ToString ();
-
+		nextAsteroidWater.text = nearest.gameObject.GetComponent<asteroidStats> ().water.ToString ();
+		nextAsteroidCarbon.text = nearest.gameObject.GetComponent<asteroidStats> ().carbon.ToString ();
+		nextAsteroidDamage.text = nearest.gameObject.GetComponent<asteroidStats> ().damage.ToString ();
+		nextAsteroidWealth.text = nearest.gameObject.GetComponent<asteroidStats> ().addedWealth.ToString ();
 		PlanetWealthText.text = wealth.ToString();
 		PopulationText.text = pop.ToString ();
 		FaithPointsText.text = faith.ToString ();
@@ -121,6 +132,13 @@ public class statsManager : MonoBehaviour
 		debugPlanetLevel.text = planetLevel.ToString ();
 
 		planet.transform.Rotate (0, Time.deltaTime*5, Time.deltaTime*10);
+
+		if (planetLevel == 12) 
+		{
+			choosePlanetType();
+		}
+
+
 
 		if (planetLevel == 13) 
 		{
@@ -165,8 +183,39 @@ public class statsManager : MonoBehaviour
 			icePart += col.gameObject.GetComponent<asteroidStats> ().ice;
 			nickelPart += col.gameObject.GetComponent<asteroidStats> ().nickel;
 			goldPart += col.gameObject.GetComponent<asteroidStats> ().gold;
+			waterPart += col.gameObject.GetComponent<asteroidStats> ().water;
+			carbonPart += col.gameObject.GetComponent<asteroidStats> ().carbon;
 
+			damagePart += col.gameObject.GetComponent<asteroidStats> ().damage;
+			wealthPart += col.gameObject.GetComponent<asteroidStats> ().addedWealth;
 		}
+	}
+
+	void choosePlanetType()
+	{
+		if (goldPart >= 50 || goldPart >nickelPart) 
+		{
+			goldPlanetLive = true;
+		}
+
+		if (nickelPart >= 50 || nickelPart > goldPart) 
+		{
+			nickelPlanetLive = true;
+		}
+
+		if (icePart >= 50 || icePart > ironPart) 
+		{
+			icePlanetLive = true;
+		}
+
+		if (ironPart >= 50 || ironPart > icePart) {
+			IndPlanetLive = true;
+		}
+		if (ironPart >= goldPart && nickelPart >= 90) 
+		{
+			terraPlanetLive = true;
+		}
+
 	}
 
 
@@ -270,7 +319,7 @@ public class statsManager : MonoBehaviour
 		stage1col.enabled = true;
 
 		gravityFieldSize.radius = 480;
-		pop +=1000;
+		pop +=100;
 	}
 
 	void changePlanetGoldStage2()
@@ -280,7 +329,7 @@ public class statsManager : MonoBehaviour
 		stage1col.enabled = false;
 		stage2col.enabled = true;
 		gravityFieldSize.radius = 480;
-		pop +=1000;
+		pop +=100;
 	}
 
 	void changePlanetGoldFinalStage()
@@ -290,7 +339,7 @@ public class statsManager : MonoBehaviour
 		finalCol.enabled = true;
 		stage2col.enabled = false;
 		gravityFieldSize.radius = 480;
-		pop +=1000;
+		pop +=100;
 	}
 
 //************************************ICE PLANET*****************************************
@@ -310,7 +359,7 @@ public class statsManager : MonoBehaviour
 
 		stage1col.enabled = true;
 		gravityFieldSize.radius = 480;
-		pop +=1000;
+		pop +=100;
 	}
 
 	void changePlanetIceStage2()
@@ -326,7 +375,7 @@ public class statsManager : MonoBehaviour
 		stage2col.enabled = true;
 		stage2.gameObject.GetComponent<SphereCollider> ().radius = 40.3f;
 		gravityFieldSize.radius = 480;
-		pop +=1000;
+		pop +=100;
 	}
 
 	void changePlanetIceFinalStage()
@@ -342,7 +391,7 @@ public class statsManager : MonoBehaviour
 		stage2col.enabled = false;
 		finalStage.gameObject.GetComponent<SphereCollider> ().radius = 58.3f;
 		gravityFieldSize.radius = 480;
-		pop +=1000;
+		pop +=100;
 	}
 
 	//************************************NICKEL PLANET*****************************************
@@ -363,7 +412,7 @@ public class statsManager : MonoBehaviour
 		stage1col.enabled = false;
 		stage2col.enabled = true;
 		gravityFieldSize.radius = 480;
-		pop +=1000;
+		pop +=100;
 	}
 
 	void changePlanetNickelFinalStage()
@@ -395,7 +444,7 @@ public class statsManager : MonoBehaviour
 		stage1.gameObject.GetComponent<SphereCollider> ().radius = 50f;
 		stage1.gameObject.GetComponent<SphereCollider> ().center = new Vector3(8f,-0.12f,-3.46f);
 		gravityFieldSize.radius = 480;
-		pop +=1000;
+		pop +=100;
 
        
 
@@ -415,7 +464,7 @@ public class statsManager : MonoBehaviour
 		stage2.gameObject.GetComponent<SphereCollider> ().radius = 49.4f;
 		stage2.gameObject.GetComponent<SphereCollider> ().center = new Vector3(8.8f,-1f,-3.8f);
 		gravityFieldSize.radius = 480;
-		pop +=1000;
+		pop +=100;
        
     }
 
@@ -436,7 +485,7 @@ public class statsManager : MonoBehaviour
 		finalStage.gameObject.GetComponent<SphereCollider> ().radius = 49.2f;
 		finalStage.gameObject.GetComponent<SphereCollider> ().center = new Vector3(6.54f,1.20f,-3f);
 		gravityFieldSize.radius = 480;
-		pop +=1000;
+		pop +=100;
         
     }
 
@@ -456,7 +505,7 @@ public class statsManager : MonoBehaviour
 		stage1.gameObject.GetComponent<SphereCollider> ().radius = 50f;
 		stage1.gameObject.GetComponent<SphereCollider> ().center = new Vector3(8f,-0.12f,-3.46f);
 		gravityFieldSize.radius = 480;
-		pop +=1000;
+		pop +=100;
         
     }
 
@@ -494,7 +543,7 @@ public class statsManager : MonoBehaviour
 		finalStage.gameObject.GetComponent<SphereCollider> ().radius = 49.2f;
 		finalStage.gameObject.GetComponent<SphereCollider> ().center = new Vector3(6.54f,1.20f,-3f);
 		gravityFieldSize.radius = 480;
-		pop +=1000;
+		pop +=100;
 	}
 
 
@@ -524,8 +573,8 @@ public class statsManager : MonoBehaviour
 	{
 		if (planetLevel >= 10)
 		{
-			wealth += 10;
-			pop -= 100;
+			wealth += wealthPart;
+			pop -= damagePart;
 		}
 
 		if (pop <= 0) 
