@@ -9,7 +9,7 @@ public class triggerGravity : MonoBehaviour {
 	void Start()
 	{
 
-
+        
 	}
 
 

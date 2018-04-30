@@ -74,7 +74,7 @@ public class statsManager : MonoBehaviour
 	public GameObject finalStage;
 	public SphereCollider finalCol;
 
-	public ParticleSystem planetSmoke;
+	public GameObject planetSmoke;
 
 	public SphereCollider gravityFieldSize;
 	public GameObject gravityField;
@@ -176,25 +176,31 @@ public class statsManager : MonoBehaviour
 		if (goldPlanetLive == true) 
 		{
 			changePlanetGoldStage1 ();
-		} 
+
+        } 
 
 		if (icePlanetLive == true)
 		{
 			changePlanetIceStage1 ();
-		}
+
+        }
 		if (nickelPlanetLive == true)
 		{
 			changePlanetNickelStage1 ();
-		}
+
+        }
 		if (terraPlanetLive == true)
 		{
 			changePlanetTerraStage1 ();
-		}
+
+        }
 		if (IndPlanetLive == true)
 		{
 			changePlanetIndStage1 ();
-		}
-	}
+
+        }
+        Instantiate(planetSmoke, new Vector3(-5f, 60f, -37f), Quaternion.identity);
+    }
 
 	void changePlanetTypeStage2()
 	{
@@ -219,7 +225,8 @@ public class statsManager : MonoBehaviour
 		{
 			changePlanetIndStage2 ();
 		}
-	}
+        Instantiate(planetSmoke, new Vector3(-5f, 60f, -37f), Quaternion.identity);
+    }
 
 	void changePlanetTypeFinalStage()
 	{
@@ -244,13 +251,13 @@ public class statsManager : MonoBehaviour
 		{
 			changePlanetIndFinalStage ();
 		}
-	}
+        Instantiate(planetSmoke, new Vector3(-5f, 60f, -37f), Quaternion.identity);
+    }
 
 	void changePlanetSize()
 	{
 		gravityField.transform.localScale += new Vector3(0.1F, 0.1F, 0.1F);
 		planet.transform.localScale += new Vector3(0.1F, 0.1F, 0.1F);
-		planetSmoke.Play ();
 
 	}
 		
@@ -382,13 +389,17 @@ public class statsManager : MonoBehaviour
 		{
 			mats [i] = terraMatS1 [i];
 		}
+        
 		stage1.gameObject.GetComponent<MeshRenderer> ().materials = mats;
 		stage1col.enabled = true;
 		stage1.gameObject.GetComponent<SphereCollider> ().radius = 50f;
 		stage1.gameObject.GetComponent<SphereCollider> ().center = new Vector3(8f,-0.12f,-3.46f);
 		gravityFieldSize.radius = 480;
 		pop +=1000;
-	}
+
+       
+
+    }
 
 	void changePlanetTerraStage2()
 	{
@@ -405,7 +416,8 @@ public class statsManager : MonoBehaviour
 		stage2.gameObject.GetComponent<SphereCollider> ().center = new Vector3(8.8f,-1f,-3.8f);
 		gravityFieldSize.radius = 480;
 		pop +=1000;
-	}
+       
+    }
 
 	void changePlanetTerraFinalStage()
 	{
@@ -425,7 +437,8 @@ public class statsManager : MonoBehaviour
 		finalStage.gameObject.GetComponent<SphereCollider> ().center = new Vector3(6.54f,1.20f,-3f);
 		gravityFieldSize.radius = 480;
 		pop +=1000;
-	}
+        
+    }
 
 	//************************************INDUSTRIAL PLANET*****************************************
 
@@ -444,7 +457,8 @@ public class statsManager : MonoBehaviour
 		stage1.gameObject.GetComponent<SphereCollider> ().center = new Vector3(8f,-0.12f,-3.46f);
 		gravityFieldSize.radius = 480;
 		pop +=1000;
-	}
+        
+    }
 
 	void changePlanetIndStage2()
 	{
