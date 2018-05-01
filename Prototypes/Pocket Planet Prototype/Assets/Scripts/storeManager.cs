@@ -14,10 +14,20 @@ public class storeManager : MonoBehaviour {
 	public Transform shipItem;
 
 	public Button Gatcha;
+	public Button zero;
+	public Button one;
+	public Button two;
+	public Button three;
+	public Button four;
+	public Button five;
+	public Button six;
+	public Button seven;
+	public Button eight;
+	public Button nine;
+	public Button ten;
 
-	public Button treeButton;
-	public Button PyramidButton;
-	public Button shipButton;
+
+
 
 
 	public bool hasHit;
@@ -25,66 +35,55 @@ public class storeManager : MonoBehaviour {
 	public int pyramidPrice = 50;
 	public int shipPrice = 150;
 
+
+	public int itemNumber;
+
 	public GameObject[] storeItems;
 
 	void Start () 
 	{
 		menuPanel.gameObject.SetActive (false);
 
-		Button buytree = treeButton.GetComponent<Button> ();
-		buytree.onClick.AddListener (purchasetree);
 
-		Button buyPyramid = PyramidButton.GetComponent<Button> ();
-		buyPyramid.onClick.AddListener (purchasePyramid);
+		Button element0 = zero.GetComponent<Button> ();
+		element0.onClick.AddListener (buyElement0);
 
-		Button buyShip = shipButton.GetComponent<Button> ();
-		buyShip.onClick.AddListener (purchaseShip);
+		Button element1 = one.GetComponent<Button> ();
+		element1.onClick.AddListener (buyElement1);
 
 		Button gatcha = Gatcha.GetComponent<Button> ();
 		gatcha.onClick.AddListener (ActivateGatcha);
 
 	}
 
-
-	void purchasePyramid()
+	void buyItem()
 	{
-		Debug.Log ("pyramid bought");
-		if (parentPlanet.gameObject.GetComponent<statsManager> ().faith >= pyramidPrice)
+		for (int i = 0; i < itemNumber; i++) 
 		{
-			var newPyramid = Instantiate (PyramidItem, new Vector3 (itemSpawnLocation.GetComponent<Transform> ().position.x, itemSpawnLocation.GetComponent<Transform> ().position.y, itemSpawnLocation.GetComponent<Transform> ().position.z), Quaternion.Euler (-90, 0, -180));
-			parentPlanet.gameObject.GetComponent<statsManager> ().faith -= pyramidPrice;
-		}
-		if (parentPlanet.gameObject.GetComponent<statsManager> ().faith <= pyramidPrice) 
-		{
-			Debug.Log ("Not Enough Faith");
-		}
-
-	}
-
-
-	void purchasetree()
-	{
-		Debug.Log ("tree bought");
-		if (parentPlanet.gameObject.GetComponent<statsManager> ().faith >= treePrice)
-		{
-			var newtree = Instantiate (treeItem, new Vector3 (itemSpawnLocation.GetComponent<Transform> ().position.x, itemSpawnLocation.GetComponent<Transform> ().position.y, itemSpawnLocation.GetComponent<Transform> ().position.z), Quaternion.Euler (-90, 0, -180));
-			parentPlanet.gameObject.GetComponent<statsManager> ().faith -= treePrice;
-		}
-		if (parentPlanet.gameObject.GetComponent<statsManager> ().faith <= treePrice) 
-		{
-			Debug.Log ("Not Enough Faith");
+			Instantiate(storeItems[i], new Vector3 (itemSpawnLocation.GetComponent<Transform> ().position.x, itemSpawnLocation.GetComponent<Transform> ().position.y, itemSpawnLocation.GetComponent<Transform> ().position.z), Quaternion.Euler (-90, 0, -180));
 		}
 	}
 
-	void purchaseShip()
+	void buyElement0()
 	{
-		Debug.Log ("ship bought");
+		Debug.Log ("castle bought");
 		if (parentPlanet.gameObject.GetComponent<statsManager> ().faith <= shipPrice) 
 		{
 			Debug.Log ("Not Enough Faith");
 		}
 		Instantiate(storeItems[0], new Vector3 (itemSpawnLocation.GetComponent<Transform> ().position.x, itemSpawnLocation.GetComponent<Transform> ().position.y, itemSpawnLocation.GetComponent<Transform> ().position.z), Quaternion.Euler (-90, 0, -180));
 	}
+
+	void buyElement1()
+	{
+		Debug.Log ("container ship  bought");
+		if (parentPlanet.gameObject.GetComponent<statsManager> ().faith <= shipPrice) 
+		{
+			Debug.Log ("Not Enough Faith");
+		}
+		Instantiate(storeItems[1], new Vector3 (itemSpawnLocation.GetComponent<Transform> ().position.x, itemSpawnLocation.GetComponent<Transform> ().position.y, itemSpawnLocation.GetComponent<Transform> ().position.z), Quaternion.Euler (-90, 0, -180));
+	}
+
 
 
 	void ActivateGatcha()
