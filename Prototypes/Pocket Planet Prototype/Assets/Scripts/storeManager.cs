@@ -51,6 +51,12 @@ public class storeManager : MonoBehaviour {
 		Button element1 = one.GetComponent<Button> ();
 		element1.onClick.AddListener (buyElement1);
 
+		Button element2 = two.GetComponent<Button> ();
+		element2.onClick.AddListener (buyElement2);
+
+		Button element3 = three.GetComponent<Button> ();
+		element3.onClick.AddListener (buyElement3);
+
 		Button gatcha = Gatcha.GetComponent<Button> ();
 		gatcha.onClick.AddListener (ActivateGatcha);
 
@@ -84,11 +90,30 @@ public class storeManager : MonoBehaviour {
 		Instantiate(storeItems[1], new Vector3 (itemSpawnLocation.GetComponent<Transform> ().position.x, itemSpawnLocation.GetComponent<Transform> ().position.y, itemSpawnLocation.GetComponent<Transform> ().position.z), Quaternion.Euler (-90, 0, -180));
 	}
 
+	void buyElement2()
+	{
+		Debug.Log ("crane bought");
+		if (parentPlanet.gameObject.GetComponent<statsManager> ().faith <= shipPrice) 
+		{
+			Debug.Log ("Not Enough Faith");
+		}
+		Instantiate(storeItems[2], new Vector3 (itemSpawnLocation.GetComponent<Transform> ().position.x, itemSpawnLocation.GetComponent<Transform> ().position.y, itemSpawnLocation.GetComponent<Transform> ().position.z), Quaternion.Euler (-90, 0, -180));
+	}
 
+	void buyElement3()
+	{
+		Debug.Log ("crator bought");
+		if (parentPlanet.gameObject.GetComponent<statsManager> ().faith <= shipPrice) 
+		{
+			Debug.Log ("Not Enough Faith");
+		}
+		Instantiate(storeItems[3], new Vector3 (itemSpawnLocation.GetComponent<Transform> ().position.x, itemSpawnLocation.GetComponent<Transform> ().position.y, itemSpawnLocation.GetComponent<Transform> ().position.z), Quaternion.Euler (-90, 0, -180));
+	}
 
 	void ActivateGatcha()
 	{
 		Instantiate(storeItems[Random.Range(0,20)], new Vector3 (itemSpawnLocation.GetComponent<Transform> ().position.x, itemSpawnLocation.GetComponent<Transform> ().position.y, itemSpawnLocation.GetComponent<Transform> ().position.z), Quaternion.Euler (-90, 0, -180));
+		parentPlanet.gameObject.GetComponent<statsManager> ().faith -= 100;
 	}
 
 	// Update is called once per frame
